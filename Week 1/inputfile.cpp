@@ -14,4 +14,5 @@ int main(){
     std :: cout << "Your name: " << name << std ::  endl;
     std :: cout << "CGPA : " << cgpa << std :: endl;
 
+    return 0;
 }
