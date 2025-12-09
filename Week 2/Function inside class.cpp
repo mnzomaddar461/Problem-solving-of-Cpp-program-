@@ -29,3 +29,4 @@ int main(){
     student3.totalSkills();
     student4.totalSkills();
     return 0;
+}
