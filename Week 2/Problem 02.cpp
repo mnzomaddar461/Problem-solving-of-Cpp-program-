@@ -18,8 +18,11 @@ int main(){
     cout << "Name: "<< hamza->name << " " << hamza->country << " " << hamza->jersey << endl;
     cout << "Name: "<< massi->name << " " << massi->country << " " << massi->jersey << endl;
 
-    hamza->country = massi->country;
-    hamza->jersey = massi->jersey;
+    // manual process
+    // hamza->country = massi->country;
+    // hamza->jersey = massi->jersey;
+
+    *hamza = *massi;
     delete massi;
     cout << "Copy Varsion: ";
     cout << "Name: "<< hamza->name << " " << hamza->country << " " << hamza->jersey << endl;
