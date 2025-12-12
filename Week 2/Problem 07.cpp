@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-//Contest Problem 04
+//Contest Problem 05
 class Student{
     public:
     string nm;
@@ -8,22 +8,29 @@ class Student{
     string s;
     int id;
     int math_mark, eng_mark;
-    int sum;
 };
 
 bool cmp(Student l, Student r){
-    if(l.sum > r.sum){
+    if(l.eng_mark > r.eng_mark){
         return true;
     }
-    else if(l.sum < r.sum){
+    else if(l.eng_mark < r.eng_mark){
         return false;
     }
     else{ 
-        if(l.id < r.id){
+        if(l.math_mark > r.math_mark){
             return true;
         }
-        else{
+        else if(l.math_mark < r.math_mark){
             return false;
+        }
+        else{
+            if(l.id < r.id){
+                return true;
+            }
+            else{
+                return false;
+            }
         }
     }
 }
@@ -40,7 +47,6 @@ int main(){
             >> student[i].id
             >> student[i].math_mark
             >> student[i].eng_mark;
-        student[i].sum = student[i].math_mark + student[i].eng_mark;
     }
 
     sort(student, student + n, cmp);
