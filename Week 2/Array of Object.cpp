@@ -10,16 +10,17 @@ class Students{
 
 int main(){
     int value;
-    cout << "Enter Total Students Number: ";
+    cout << "--------Enter Total Students Number: --------" << endl;
+    cout << "Enter : " ;
     cin >> value;
-    // Students allstudents[value];
     vector<Students> allstudents(value);
-
+    cin.ignore();
     for(int i = 0; i < value; i++){
-        cin.ignore();
+        
         cout << "Enter student info (Name, ID, CGPA): " << i+1 << endl;
         getline(cin, allstudents[i].name);
         cin >> allstudents[i].id >> allstudents[i].cgpa;
+        cin.ignore();
         cout << endl;
     }
 
@@ -29,5 +30,18 @@ int main(){
         cout << " CGPA: " << allstudents[i].cgpa << endl;
         cout << endl;
     }
+
+    cout << "---- Show Minimum CGPA:----" << endl;
+    Students minimum = allstudents[0];
+
+    for(int i = 1; i < value; i++){
+        if(allstudents[i].cgpa < minimum.cgpa){
+            minimum = allstudents[i];
+        }
+    }
+
+    cout << "Name: " << minimum.name << endl;
+    cout << "ID: " << minimum.id << endl;
+    cout << "CGPA: " << minimum.cgpa << endl;
     return 0;
 }
